@@ -1,28 +1,48 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Programs from './components/Programs';
+import Engage from './components/Engage';
+import { Rocket } from 'lucide-react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-[#0a0b10] text-white antialiased">
+      {/* Top navigation */}
+      <header className="fixed inset-x-0 top-0 z-20 border-b border-white/10 bg-black/30 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <a href="#home" className="flex items-center gap-2 text-sm font-semibold">
+            <Rocket className="h-4 w-4 text-cyan-300" />
+            <span className="bg-gradient-to-r from-cyan-300 via-blue-200 to-purple-300 bg-clip-text text-transparent">
+              VirtualRevolution.education
+            </span>
+          </a>
+          <nav className="hidden items-center gap-6 text-sm text-blue-100/80 sm:flex">
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#programs" className="hover:text-white">Programs</a>
+            <a href="#gallery" className="hover:text-white">Gallery</a>
+            <a href="#contact" className="rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 hover:bg-cyan-300/20">Book a Demo</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      {/* Content sections */}
+      <main className="scroll-smooth">
+        <Hero />
+        <About />
+        <Programs />
+        <Engage />
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-black/40 py-10">
+        <div className="mx-auto max-w-6xl px-6 text-center text-sm text-blue-100/70">
+          <p>© {new Date().getFullYear()} VirtualRevolution.education. All rights reserved.</p>
+          <p className="mt-1">Built for immersive, modern, and accessible learning.</p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
